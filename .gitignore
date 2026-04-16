@@ -1,0 +1,30 @@
+# PyTorch / Models
+*.pth
+*.pt
+vocab.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+.venv/
+
+# Streamlit
+temp_image.jpg
+.streamlit/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp

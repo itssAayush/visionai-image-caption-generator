@@ -1,0 +1,9 @@
+torch
+torchvision
+torchaudio
+datasets
+pillow
+nltk
+tqdm
+matplotlib
+streamlit
