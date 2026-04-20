@@ -16,8 +16,8 @@ st.write(
 # Sidebar with status
 with st.sidebar:
     st.header("System Status")
-    st.success("✅ BLIP Model Integrated")
-    st.write("The model will automatically download from HuggingFace on your very first inference if it isn't cached locally.")
+    st.success("✅ BLIP Large Model Integrated")
+    st.write("The large model provides maximum accuracy and will download from HuggingFace on your very first inference if it isn't cached locally.")
 
 uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "jpeg", "png"])
 
