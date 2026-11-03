@@ -8,87 +8,138 @@ app_file: app.py
 pinned: false
 ---
 
-# Image Caption Generator 🖼️ ➡️ 📝
+# Image Caption Generator
 
-An advanced image captioning application that automatically generates highly accurate, descriptive captions for uploaded images using Deep Learning. 
+VisionAI is an AI-powered Image Caption Generator that transforms images into meaningful natural-language descriptions using Computer Vision and Natural Language Processing (NLP).
 
-This project features a dual-architecture approach:
-1. **Salesforce BLIP (Bootstrapping Language-Image Pre-training)**: A state-of-the-art transformer model integrated via Hugging Face for maximum accuracy and robust production-level inference.
-2. **Custom CNN-LSTM Encoder-Decoder**: A custom-built PyTorch architecture (ResNet-50 encoder and an LSTM decoder) trained from scratch on the Flickr8k dataset.
+Built using Python, Streamlit, PyTorch and Salesforce BLIP, the application allows users to upload images and generate intelligent captions through a simple, interactive web interface.
 
-It provides a clean, interactive **Streamlit** web interface for generating captions instantly.
+## ✨ Features
 
-## 🌟 Features
+- **AI-Powered Image Captioning:** Generate natural-language descriptions from uploaded images.
+- **Computer Vision + NLP:** Combines visual understanding with language generation.
+- **Multiple Caption Detail Levels:** Quick, Balanced and Detailed caption generation.
+- **Interactive Web Interface:** A modern dark-themed interface built with Streamlit.
+- **Image Preview:** Preview uploaded images before generating captions.
+- **Caption Export:** Download generated captions as text files.
+- **Inference Timing:** View the time taken to generate captions.
 
-- **High-Accuracy Inference**: Uses the robust Salesforce BLIP model for state-of-the-art zero-shot image captioning.
-- **Custom Model Training Pipeline**: Complete end-to-end pipeline for training a CNN-LSTM model on custom datasets.
-- **Interactive UI**: Built with Streamlit for a fast, responsive, and user-friendly experience.
-- **Hugging Face Spaces Ready**: Pre-configured metadata for seamless deployment.
+## 🧠 Model & Technology
 
-## 🛠️ Technology Stack
+| Component | Technology |
+|---|---|
+| Programming Language | Python |
+| Computer Vision | Salesforce BLIP |
+| Deep Learning Framework | PyTorch |
+| NLP / Language Generation | BLIP Transformer Architecture |
+| Frontend | Streamlit |
+| Image Processing | Pillow |
+| Model Ecosystem | Hugging Face Transformers |
 
-- **Deep Learning Framework**: PyTorch
-- **Models**: Salesforce BLIP, ResNet-50, LSTM
-- **Libraries**: Transformers (Hugging Face), Torchvision, NLTK, PIL
-- **Frontend**: Streamlit
+**Model:** `Salesforce/blip-image-captioning-large`
 
-## 📂 Project Structure
+## 🏗️ Project Architecture
+
+1. User uploads an image.
+2. The image is processed using Pillow.
+3. BLIP Processor prepares the image for inference.
+4. The pretrained BLIP model generates a caption.
+5. The generated text is displayed in the VisionAI interface.
+6. Users can copy or download the caption.
+
+## 📁 Project Structure
 
 ```text
-├── app.py                # Streamlit web application (uses BLIP for frontend)
-├── blip_inference.py     # BLIP model inference script
-├── model.py              # Custom CNN-LSTM architecture (ResNet50 + LSTM)
-├── train.py              # Training script for the custom model
-├── dataset.py            # Custom PyTorch Dataset loader for Flickr8k
-├── build_vocab.py        # Vocabulary builder for custom training
-├── inference.py          # Command-line inference for the custom CNN-LSTM model
-├── requirements.txt      # Python dependencies
-└── README.md             # Project documentation
+VisionAI/
+│
+├── app.py
+├── blip_inference.py
+├── model.py
+├── inference.py
+├── dataset.py
+├── requirements.txt
+├── README.md
+│
+└── assets/
+    └── screenshots/
 ```
+
+*The structure above represents the intended project organization; adjust it to match the files actually included in the repository.*
 
 ## ⚙️ Installation & Setup
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repository_url>
-   cd image-caption-generator
-   ```
+### 1. Clone the repository
 
-2. **Create a virtual environment** (Optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+```bash
+git clone https://github.com/YOUR-USERNAME/visionai-image-caption-generator.git
+cd visionai-image-caption-generator
+```
 
-3. **Install the dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 2. Create a virtual environment
 
-## 🚀 Usage
+```bash
+python -m venv venv
+```
 
-### 1. Running the Web App (BLIP Model)
-The easiest way to use the application is through the interactive Streamlit web interface. It will automatically download the BLIP Large model on the very first run.
+Activate it:
+
+**macOS / Linux**
+```bash
+source venv/bin/activate
+```
+
+**Windows**
+```bash
+venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the application
+
 ```bash
 streamlit run app.py
 ```
-Simply upload an image through the UI to generate an accurate caption!
 
-### 2. Custom Model Training (CNN-LSTM)
-If you wish to train the custom Encoder-Decoder model from scratch:
-1. Download the Flickr8k dataset (images and captions).
-2. Configure the dataset paths appropriately (see `dataset.py` and `train.py`).
-3. Run the training script:
-   ```bash
-   python train.py
-   ```
-4. This process will generate a vocabulary dictionary (`vocab.pkl`) and save model weights (`caption_model.pth`).
+Open the local URL displayed in your terminal.
 
-### 3. Custom Model Inference
-Once the custom CNN-LSTM model is fully trained, you can use the command-line inference script to generate captions:
-```bash
-python inference.py --image path/to/image.jpg
+## 🖥️ Application Preview
+
+Add your project screenshots here:
+
+```markdown
+![VisionAI Homepage](assets/screenshots/homepage.png)
+![Caption Generation](assets/screenshots/caption-generation.png)
 ```
+
+## 🔬 Future Improvements
+
+- Fine-tuning on custom image-caption datasets.
+- Integration of more advanced vision-language models.
+- Multilingual image caption generation.
+- Text-to-speech support for generated captions.
+- Image question answering.
+- Cloud deployment and API integration.
+
+## 🎯 Project Objective
+
+The objective of VisionAI is to explore the integration of Computer Vision and Natural Language Processing to enable machines to interpret visual information and communicate it through human-readable language.
+
+## 👨‍💻 Author
+
+**Aayush Jha**
+
+B.Tech Computer Science & Engineering
+
+Interested in Artificial Intelligence, Machine Learning, Computer Vision and NLP.
+
+---
+
+⭐ If you find this project interesting, consider giving the repository a star!
 
 ## 📝 Troubleshooting
 - **macOS SSL Verification**: If you encounter SSL certificate verification errors on macOS when downloading pretrained ResNet weights, the code includes a built-in patch (`ssl._create_unverified_context` in `model.py`) to resolve this automatically.
